@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "randomforestexp"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+scikit-learn = "^1.0.2"
+pandas = "^1.4.2"
+seaborn = "^0.11.2"
+matplotlib = "^3.5.1"
+awsiotsdk = "^1.10.0"
+AWSIoTPythonSDK = "^1.4.9"
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^6.12.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
