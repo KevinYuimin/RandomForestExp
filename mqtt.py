@@ -2,10 +2,20 @@ import json
 import AWSIoTPythonSDK.MQTTLib as AWSIoTPyMQTT
 import config
 import functools
+import time
 
 def callback(msg_queue, client, userdata, message):
     message = json.loads(message.payload)
-    msg_queue.put(message)
+    name = message["sensor_name"]
+    co2_ppm = 0
+    if name == "CO2":
+        max_v = 5000
+        co2_ppm = int(message["co2"])
+        co2_ppm = min(co2_ppm, max_v)
+        co2_ppm = (co2_ppm/max_v)*100
+        if co2_ppm ==0: return
+        msg_queue.put(co2_ppm)
+
 
 class MyAIMqttClient:
     def __init__(self, msg_queue):

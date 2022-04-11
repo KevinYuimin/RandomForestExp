@@ -15,7 +15,9 @@ signal.signal(signal.SIGINT, exit_gracefully)
 
 def data_formatter(msg):
     # CO2,AQI,PM2.5,PM10,Rain,Smoke
-    return [[int(msg["CO2"]),0,0,0,0,0]]
+    data = [[msg,0,0,0,0,0]]
+    print(data)
+    return data
 
 def run():
     global in_service
